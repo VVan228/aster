@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "767102269092",
+    "project_id": "aster-500f5",
+    "storage_bucket": "aster-500f5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:767102269092:android:40b131b01012f386649831",
+        "android_client_info": {
+          "package_name": "com.example.aster"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "767102269092-7h9dt6b7g5luu1qsec8frbn2s2udigqu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.aster",
+            "certificate_hash": "bc329c814b47c711bb37a30886fc3441fc660346"
+          }
+        },
+        {
+          "client_id": "767102269092-535863tnjtv676fotrl1j53mmd1ln917.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDhRsPH6YcHxPg750QpPn1S2ww9_WFIiJo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "767102269092-535863tnjtv676fotrl1j53mmd1ln917.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
