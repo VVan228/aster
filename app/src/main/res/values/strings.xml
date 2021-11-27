@@ -11,5 +11,7 @@
     <string name="sign_in">Зарегистрироваться</string>
     <string name="title_forum">Forum</string>
     <string name="title_category">Instruments</string>
-    <string name="title_account">account</string>
-   </resources>
+    <string name="title_account">Account</string>
+    <string name="title_messenger">Messenger</string>
+
+</resources>
