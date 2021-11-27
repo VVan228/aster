@@ -20,11 +20,15 @@ import com.google.firebase.database.FirebaseDatabase;
 public class Authorization {
 
     private final FirebaseAuth auth;
+    private final FirebaseDatabase dbase;
+    private final DatabaseReference ref;
     public FirebaseUser user;
-    private FirebaseAuth.AuthStateListener authListener;
+    private final FirebaseAuth.AuthStateListener authListener;
 
-    Authorization(){
+    public Authorization(){
         auth = FirebaseAuth.getInstance();
+        dbase = FirebaseDatabase.getInstance();
+        ref = dbase.getReference();
 
         if(auth.getCurrentUser() != null){
             user = auth.getCurrentUser();
@@ -33,7 +37,7 @@ public class Authorization {
         authListener = this::authListener;
     }
 
-    void authListener(FirebaseAuth firebaseAuth){
+    public void authListener(FirebaseAuth firebaseAuth){
         FirebaseUser user1 = firebaseAuth.getCurrentUser();
         if (user1 == null) {
             //log out event
@@ -50,7 +54,7 @@ public class Authorization {
     }
 
 
-    void signIn(String email, String password){
+    public void signIn(String email, String password){
         auth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
@@ -64,25 +68,24 @@ public class Authorization {
                 });
     }
 
-    void signUp(String email, String password, User userData){
+    public void signUp(String email, String password, User userData){
         auth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(task -> {
-                    if (!task.isSuccessful()) {
-                        DatabaseReference db = FirebaseDatabase.getInstance().getReference();
-                        DatabaseReference query = db.child("").push();
+                    if (task.isSuccessful()) {
+                        DatabaseReference query = ref.child("users").push();
                         query.keepSynced(true);
                         query.setValue(userData);
                         //signUp success
                         postEvent(signUp);
                     } else {
                         //signUp failure
-                        postEvent(signUp, "error");
+                        postEvent(signUp, "error " + task.getException().getMessage());
                     }
                 });
     }
 
 
-    void resetPassword(String email){
+    public void resetPassword(String email){
         auth.sendPasswordResetEmail(email).addOnCompleteListener(task -> {
             if (task.isSuccessful()) {
                 //resetPassword success event
@@ -94,7 +97,7 @@ public class Authorization {
         });
     }
 
-    void updateEmail(String email){
+    public void updateEmail(String email){
         user.updateEmail(email).addOnCompleteListener(task -> {
             if (task.isSuccessful()) {
                 //updateEmail success
@@ -106,7 +109,7 @@ public class Authorization {
         });
     }
 
-    void updatePassword(String password){
+    public void updatePassword(String password){
         user.updatePassword(password)
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
@@ -121,7 +124,7 @@ public class Authorization {
 
 
 
-    void deleteUser(){
+    public void deleteUser(){
         user.delete().addOnCompleteListener(task -> {
             if (task.isSuccessful()) {
                 //delete success
@@ -135,12 +138,12 @@ public class Authorization {
 
 
     //используется в onStart
-    void addAuthStateListener(){
+    public void addAuthStateListener(){
         auth.addAuthStateListener(authListener);
     }
 
     //используется в onStop
-    void removeAuthStateListener(){
+    public void removeAuthStateListener(){
         if(authListener != null){
             auth.removeAuthStateListener(authListener);
         }

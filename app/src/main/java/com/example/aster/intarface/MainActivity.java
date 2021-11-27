@@ -1,8 +1,14 @@
 package com.example.aster.intarface;
 
 import android.os.Bundle;
+import android.util.Log;
 
 import com.example.aster.R;
+import com.example.aster.entities.User;
+import com.example.aster.events.Event;
+import com.example.aster.events.EventsBus;
+import com.example.aster.events.Observer;
+import com.example.aster.models.Authorization;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,6 +18,7 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.example.aster.databinding.ActivityMainBinding;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,6 +30,19 @@ public class MainActivity extends AppCompatActivity {
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+
+        Authorization auth = new Authorization();
+        EventsBus.register(new Observer() {
+            @Override
+            public void onEvent(Event event) {
+                Log.d("tag4me", event.message + " 1");
+            }
+        });
+        auth.signUp("vvan228@vk.com", "123456", new User("bob", "killer","","","vvan228@vk.com"));
+
+        auth.deleteUser();
+
 
         BottomNavigationView navView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
