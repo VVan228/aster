@@ -1,29 +1,28 @@
-package com.example.aster.ui.category;
+package com.example.aster.intarface.navigation.messenger;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
+import com.example.aster.R;
+import com.example.aster.databinding.FragmentMessengerBinding;
 
-import com.example.aster.databinding.FragmentCategoryBinding;
-
-
-public class CategoryFragment extends Fragment {
-
-    private FragmentCategoryBinding binding;
+public class MessengerFragment extends Fragment {
+    private FragmentMessengerBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-
-        binding = FragmentCategoryBinding.inflate(inflater, container, false);
+        binding = FragmentMessengerBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textCategory;
-        textView.setText("category mf");
+        final TextView textView = binding.textMessenger;
+        textView.setText("messenger mf");
         return root;
     }
 

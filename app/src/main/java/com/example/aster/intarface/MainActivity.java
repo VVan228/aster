@@ -1,7 +1,8 @@
-package com.example.aster;
+package com.example.aster.intarface;
 
 import android.os.Bundle;
 
+import com.example.aster.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.appcompat.app.AppCompatActivity;

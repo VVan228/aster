@@ -8,31 +8,31 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.example.aster.ui.home.HomeFragment"
+        android:name="com.example.aster.intarface.navigation.home.HomeFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/navigation_forum"
-        android:name="com.example.aster.ui.forum.ForumFragment"
+        android:name="com.example.aster.intarface.navigation.forum.ForumFragment"
         android:label="@string/title_forum"
         tools:layout="@layout/fragment_forum" />
 
     <fragment
         android:id="@+id/navigation_category"
-        android:name="com.example.aster.ui.category.CategoryFragment"
+        android:name="com.example.aster.intarface.navigation.category.CategoryFragment"
         android:label="@string/title_category"
         tools:layout="@layout/fragment_category" />
 
     <fragment
         android:id="@+id/navigation_account"
-        android:name="com.example.aster.ui.account.AccountFragment"
+        android:name="com.example.aster.intarface.navigation.account.AccountFragment"
         android:label="@string/title_account"
         tools:layout="@layout/fragment_account" />
 
     <fragment
         android:id="@+id/navigation_messenger"
-        android:name="com.example.aster.ui.messenger.MessengerFragment"
+        android:name="com.example.aster.intarface.navigation.messenger.MessengerFragment"
         android:label="@string/title_messenger"
         tools:layout="@layout/fragment_messenger" />
 </navigation>

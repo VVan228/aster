@@ -1,30 +1,29 @@
-package com.example.aster.ui.home;
+package com.example.aster.intarface.navigation.category;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
 
-import com.example.aster.R;
-import com.example.aster.databinding.FragmentHomeBinding;
+import com.example.aster.databinding.FragmentCategoryBinding;
 
-public class HomeFragment extends Fragment {
 
-    private FragmentHomeBinding binding;
+public class CategoryFragment extends Fragment {
+
+    private FragmentCategoryBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        binding = FragmentHomeBinding.inflate(inflater, container, false);
+
+        binding = FragmentCategoryBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textHome;
-        textView.setText("home mf");
+        final TextView textView = binding.textCategory;
+        textView.setText("category mf");
         return root;
     }
 
