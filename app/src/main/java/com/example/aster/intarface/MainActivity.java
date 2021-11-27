@@ -9,6 +9,7 @@ import com.example.aster.events.Event;
 import com.example.aster.events.EventsBus;
 import com.example.aster.events.Observer;
 import com.example.aster.models.Authorization;
+import com.example.aster.models.Data;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.appcompat.app.AppCompatActivity;

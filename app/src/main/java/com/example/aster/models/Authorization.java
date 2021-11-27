@@ -9,9 +9,12 @@ import static com.example.aster.events.Event.eventType.signUp;
 import static com.example.aster.events.Event.eventType.updateEmail;
 import static com.example.aster.events.Event.eventType.updatePassword;
 
+import android.content.Context;
+
 import com.example.aster.entities.User;
 import com.example.aster.events.EventsBus;
 import com.example.aster.events.Event;
+import com.example.aster.intarface.loginActivities.login.LoginActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
@@ -20,14 +23,13 @@ import com.google.firebase.database.FirebaseDatabase;
 public class Authorization {
 
     private final FirebaseAuth auth;
-    private final FirebaseDatabase dbase;
     private final DatabaseReference ref;
     public FirebaseUser user;
     private final FirebaseAuth.AuthStateListener authListener;
 
     public Authorization(){
         auth = FirebaseAuth.getInstance();
-        dbase = FirebaseDatabase.getInstance();
+        FirebaseDatabase dbase = FirebaseDatabase.getInstance();
         ref = dbase.getReference();
 
         if(auth.getCurrentUser() != null){
@@ -43,6 +45,10 @@ public class Authorization {
             //log out event
             postEvent(logOut);
         }
+    }
+
+    public String getEmail(){
+        return user.getEmail();
     }
 
     public boolean isAuthorized(){
@@ -68,13 +74,10 @@ public class Authorization {
                 });
     }
 
-    public void signUp(String email, String password, User userData){
+    public void signUp(String email, String password){
         auth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
-                        DatabaseReference query = ref.child("users").push();
-                        query.keepSynced(true);
-                        query.setValue(userData);
                         //signUp success
                         postEvent(signUp);
                     } else {

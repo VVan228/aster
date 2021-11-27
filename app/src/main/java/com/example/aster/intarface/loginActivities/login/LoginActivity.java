@@ -16,7 +16,9 @@ import com.example.aster.events.Event;
 import com.example.aster.events.EventsBus;
 import com.example.aster.events.Observer;
 import com.example.aster.intarface.MainActivity;
+import com.example.aster.intarface.loginActivities.signUp.SignUpActivity;
 import com.example.aster.models.Authorization;
+import com.example.aster.models.Data;
 
 public class LoginActivity extends AppCompatActivity implements InterfaceLoginView {
     EditText email;
@@ -55,6 +57,9 @@ public class LoginActivity extends AppCompatActivity implements InterfaceLoginVi
             presenter.onSubmit(email.getText().toString(),
                     password.getText().toString());
         });
+        signUp.setOnClickListener(v -> {
+            presenter.onSignUp();
+        });
     }
 
     @Override
@@ -62,6 +67,13 @@ public class LoginActivity extends AppCompatActivity implements InterfaceLoginVi
         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
         startActivity(intent);
         finish();
+    }
+
+
+    @Override
+    public void openSignUpActivity() {
+        Intent intent = new Intent(LoginActivity.this, SignUpActivity.class);
+        startActivity(intent);
     }
 
     @Override

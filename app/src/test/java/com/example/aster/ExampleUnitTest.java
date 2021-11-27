@@ -21,16 +21,4 @@ public class ExampleUnitTest {
         assertEquals(4, 2 + 2);
     }
 
-
-    @Test
-    public void authTest(){
-        Authorization auth = new Authorization();
-        EventsBus.register(new Observer() {
-            @Override
-            public void onEvent(Event event) {
-                assertNull(event.message);
-            }
-        });
-        auth.signUp("vvan228@vk.com", "1234", new User("bob", "killer","","","vvan228@vk.com"));
-    }
 }

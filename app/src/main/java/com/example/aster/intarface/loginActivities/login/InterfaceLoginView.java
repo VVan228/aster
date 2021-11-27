@@ -9,4 +9,6 @@ public interface InterfaceLoginView {
     public void showInvalidEmail();
 
     public void showInvalidPassword();
+
+    public void openSignUpActivity();
 }

@@ -49,6 +49,10 @@ public class LoginPresenter implements Observer {
         model.signIn(email, password);
     }
 
+    public void onSignUp(){
+        view.openSignUpActivity();
+    }
+
     private boolean validateEmail(String email){
         return true;
     }
