@@ -1,4 +1,4 @@
-package com.example.aster.data_classes;
+package com.example.aster.entities;
 
 public class Comment {
 
