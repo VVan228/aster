@@ -1,8 +1,7 @@
-package com.example.aster;
+package com.example.aster.intarface.loginActivities.resetPassword;
 
 import com.example.aster.events.Event;
 import com.example.aster.events.Observer;
-import com.example.aster.intarface.loginActivities.ResetPasswordActivity;
 
 public class ResetPasswordPresenter implements Observer {
 

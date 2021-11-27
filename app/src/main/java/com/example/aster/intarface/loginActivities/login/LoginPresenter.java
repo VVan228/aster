@@ -1,14 +1,13 @@
-package com.example.aster;
+package com.example.aster.intarface.loginActivities.login;
 
 import com.example.aster.events.Event;
 import com.example.aster.events.Observer;
-import com.example.aster.intarface.loginActivities.SignUpActivity;
 
-public class SignUpPresenter implements Observer {
+public class LoginPresenter implements Observer {
 
-    SignUpActivity view;
+    InterfaceLoginView view;
 
-    SignUpPresenter(SignUpActivity view){
+    LoginPresenter(InterfaceLoginView view){
         this.view = view;
     }
 
