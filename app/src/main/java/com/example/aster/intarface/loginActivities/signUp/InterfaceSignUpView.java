@@ -1,4 +1,4 @@
-package com.example.aster.intarface.loginActivities;
+package com.example.aster.intarface.loginActivities.signUp;
 
 public interface InterfaceSignUpView {
 

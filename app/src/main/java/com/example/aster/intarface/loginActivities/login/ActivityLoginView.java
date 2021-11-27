@@ -1,4 +1,4 @@
-package com.example.aster.intarface.loginActivities;
+package com.example.aster.intarface.loginActivities.login;
 
 import androidx.appcompat.app.AppCompatActivity;
 

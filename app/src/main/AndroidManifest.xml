@@ -10,16 +10,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Aster">
         <activity
-            android:name=".intarface.loginActivities.ResetPasswordActivity"
+            android:name=".intarface.loginActivities.resetPassword.ResetPasswordActivity"
             android:exported="false" />
         <activity
-            android:name=".intarface.loginActivities.SignUpActivity"
+            android:name=".intarface.loginActivities.signUp.SignUpActivity"
             android:exported="false" />
         <activity
             android:name=".intarface.MainActivity"
             android:exported="false" />
         <activity
-            android:name=".intarface.loginActivities.ActivityLoginView"
+            android:name=".intarface.loginActivities.login.ActivityLoginView"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
