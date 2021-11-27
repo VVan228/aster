@@ -1,6 +1,10 @@
 package com.example.aster.models;
 
+import android.util.Log;
+
 import com.example.aster.entities.User;
+import com.example.aster.events.EventsBus;
+import com.example.aster.events.LoginEvent;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
@@ -14,12 +18,14 @@ public class Authorization {
 
     Authorization(){
         auth = FirebaseAuth.getInstance();
-        authListener = firebaseAuth -> {
-            FirebaseUser user1 = firebaseAuth.getCurrentUser();
-            if (user1 == null) {
-                //TODO: log out event
-            }
-        };
+        authListener = this::authListener;
+    }
+
+    void authListener(FirebaseAuth firebaseAuth){
+        FirebaseUser user1 = firebaseAuth.getCurrentUser();
+        if (user1 == null) {
+            //TODO: log out event
+        }
     }
 
     public boolean isAuthorized(){
@@ -89,16 +95,6 @@ public class Authorization {
                 });
     }
 
-    void changePassword(String email){
-        auth.sendPasswordResetEmail(email)
-                .addOnCompleteListener(task -> {
-                    if (task.isSuccessful()) {
-                        //TODO: changePassword siccess
-                    } else {
-                        //TODO: changePassword failure
-                    }
-                });
-    }
 
 
     void deleteUser(){
@@ -124,6 +120,13 @@ public class Authorization {
         }
     }
 
+
+    void postEvent(LoginEvent.eventType type, String message){
+        EventsBus.post(new LoginEvent(type, message));
+    }
+    void postEvent(LoginEvent.eventType type){
+        EventsBus.post(new LoginEvent(type));
+    }
 
 
 }
