@@ -7,18 +7,25 @@ import com.example.aster.events.Event;
 import com.example.aster.events.Observer;
 import com.example.aster.intarface.MainActivity;
 import com.example.aster.intarface.loginActivities.LoginActivity;
+import com.example.aster.intarface.loginActivities.LoginInterface;
 
 public class LoginPresenter implements Observer {
+
+    LoginInterface view;
+
+    LoginPresenter(LoginInterface view){
+        this.view = view;
+    }
 
     // get answer
     public void which_error(Event event) {
         switch (event.type){
             case signIn:
                 if (event.message == null){
-                    openIntent();
+                    view.openIntent();
                 }
                 else {
-                    showMessage(event.message);
+                    view.showMessage(event.message);
                 }
                 break;
             case signUp:
