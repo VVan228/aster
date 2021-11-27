@@ -6,6 +6,7 @@ import android.widget.Toast;
 import com.example.aster.events.Event;
 import com.example.aster.events.Observer;
 import com.example.aster.intarface.MainActivity;
+import com.example.aster.intarface.loginActivities.LoginActivity;
 
 public class LoginPresenter implements Observer {
 
@@ -17,7 +18,7 @@ public class LoginPresenter implements Observer {
                     openIntent();
                 }
                 else {
-                    showMessage();
+                    showMessage(event.message);
                 }
                 break;
             case signUp:

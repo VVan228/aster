@@ -4,5 +4,5 @@ public interface LoginInterface {
 
     public void openIntent();
 
-    public void showMessage();
+    public void showMessage(String message);
 }
