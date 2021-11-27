@@ -3,8 +3,8 @@ package com.example.aster.events;
 public class LoginEvent {
 
 
-    String message;
-    eventType type;
+    public String message;
+    public eventType type;
     public enum eventType{
         logOut,
         signIn,
