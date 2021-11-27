@@ -2,6 +2,15 @@ package com.example.aster.models;
 
 import android.util.Log;
 
+import static com.example.aster.events.LoginEvent.eventType;
+import static com.example.aster.events.LoginEvent.eventType.delete;
+import static com.example.aster.events.LoginEvent.eventType.logOut;
+import static com.example.aster.events.LoginEvent.eventType.resetPassword;
+import static com.example.aster.events.LoginEvent.eventType.signIn;
+import static com.example.aster.events.LoginEvent.eventType.signUp;
+import static com.example.aster.events.LoginEvent.eventType.updateEmail;
+import static com.example.aster.events.LoginEvent.eventType.updatePassword;
+
 import com.example.aster.entities.User;
 import com.example.aster.events.EventsBus;
 import com.example.aster.events.LoginEvent;
@@ -18,13 +27,19 @@ public class Authorization {
 
     Authorization(){
         auth = FirebaseAuth.getInstance();
+
+        if(auth.getCurrentUser() != null){
+            user = auth.getCurrentUser();
+        }
+
         authListener = this::authListener;
     }
 
     void authListener(FirebaseAuth firebaseAuth){
         FirebaseUser user1 = firebaseAuth.getCurrentUser();
         if (user1 == null) {
-            //TODO: log out event
+            //log out event
+            postEvent(logOut);
         }
     }
 
@@ -41,9 +56,12 @@ public class Authorization {
         auth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
-                        //TODO: signIn success event
+                        //signIn success event
+                        postEvent(signIn);
+                        user = auth.getCurrentUser();
                     } else {
-                        //TODO: signIn failure event
+                        //signIn failure event
+                        postEvent(signIn, "wrong login and/or password");
                     }
                 });
     }
@@ -56,9 +74,11 @@ public class Authorization {
                         DatabaseReference query = db.child("").push();
                         query.keepSynced(true);
                         query.setValue(userData);
-                        //TODO: signUp success
+                        //signUp success
+                        postEvent(signUp);
                     } else {
-                        //TODO: signUp failure
+                        //signUp failure
+                        postEvent(signUp, "error");
                     }
                 });
     }
@@ -67,9 +87,11 @@ public class Authorization {
     void resetPassword(String email){
         auth.sendPasswordResetEmail(email).addOnCompleteListener(task -> {
             if (task.isSuccessful()) {
-                //TODO: resetPassword success event
+                //resetPassword success event
+                postEvent(resetPassword);
             } else {
-                //TODO: resetPassword failure event
+                //resetPassword failure event
+                postEvent(resetPassword, "wrong email");
             }
         });
     }
@@ -77,9 +99,11 @@ public class Authorization {
     void updateEmail(String email){
         user.updateEmail(email).addOnCompleteListener(task -> {
             if (task.isSuccessful()) {
-                //TODO: updateEmail success
+                //updateEmail success
+                postEvent(updateEmail);
             } else {
-                //TODO: updateEmail failure
+                //updateEmail failure
+                postEvent(updateEmail, "wrong email");
             }
         });
     }
@@ -88,9 +112,11 @@ public class Authorization {
         user.updatePassword(password)
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
-                        //TODO: updatePassword success event
+                        //updatePassword success event
+                        postEvent(updatePassword);
                     } else {
-                        //TODO: updatePassword failure event
+                        //updatePassword failure event
+                        postEvent(updatePassword, "wrong password");
                     }
                 });
     }
@@ -100,9 +126,11 @@ public class Authorization {
     void deleteUser(){
         user.delete().addOnCompleteListener(task -> {
             if (task.isSuccessful()) {
-                //TODO: delete success
+                //delete success
+                postEvent(delete);
             } else {
-                //TODO: delete failure
+                //delete failure
+                postEvent(delete, "can't delete");
             }
         });
     }
@@ -121,7 +149,7 @@ public class Authorization {
     }
 
 
-    void postEvent(LoginEvent.eventType type, String message){
+    void postEvent(eventType type, String message){
         EventsBus.post(new LoginEvent(type, message));
     }
     void postEvent(LoginEvent.eventType type){
