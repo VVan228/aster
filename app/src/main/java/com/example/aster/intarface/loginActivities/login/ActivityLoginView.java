@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -13,32 +15,35 @@ import com.example.aster.R;
 import com.example.aster.intarface.MainActivity;
 
 public class ActivityLoginView extends AppCompatActivity implements InterfaceLoginView {
+    EditText email;
+    EditText password;
+    Button submit;
+    TextView resetPassword;
+    Button signUp;
 
-
-    private EditText login_email;
-    private EditText login_pssword;
-
-    private Button first_btn_login;
-    private TextView login_btn_reset_password;
-    private Button login_btn_signup;
-
+    LoginPresenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        login_email = findViewById(R.id.login_email);
-        login_pssword = findViewById(R.id.login_password);
+        presenter = new LoginPresenter(this);
 
-        first_btn_login = findViewById(R.id.first_btn_login);
-        login_btn_reset_password = findViewById(R.id.login_btn_reset_password);
-        login_btn_signup = findViewById(R.id.login_btn_signup);
+        email = findViewById(R.id.login_email);
+        password = findViewById(R.id.login_password);
+        submit = findViewById(R.id.login_submit);
+        resetPassword = findViewById(R.id.login_reset_password);
+        signUp = findViewById(R.id.login_signup);
+
+        submit.setOnClickListener(v -> {
+            presenter.onSubmit(email.getText().toString(),
+                    password.getText().toString());
+        });
     }
 
-
     @Override
-    public void MainActivityOpen() {
+    public void openMainActivity() {
         Intent intent = new Intent(ActivityLoginView.this, MainActivity.class);
         startActivity(intent);
         finish();
@@ -48,5 +53,21 @@ public class ActivityLoginView extends AppCompatActivity implements InterfaceLog
     public void showMessage(String message) {
         Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
         return;
+    }
+
+    @Override
+    public void showInvalidEmail() {
+        Toast.makeText(getApplicationContext(), "некорректная почта", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void showInvalidPassword() {
+        Toast.makeText(getApplicationContext(), "пароль должен быть больше 6 символов", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        presenter.onDestroy();
     }
 }

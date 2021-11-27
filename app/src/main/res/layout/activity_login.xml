@@ -33,13 +33,13 @@
             android:autofillHints="@string/password" />
 
         <Button
-            android:id="@+id/first_btn_login"
+            android:id="@+id/login_submit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Вход" />
 
         <TextView
-            android:id="@+id/login_btn_reset_password"
+            android:id="@+id/login_reset_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginVertical="10dp"
@@ -48,7 +48,7 @@
             android:textStyle="bold"/>
 
         <Button
-            android:id="@+id/login_btn_signup"
+            android:id="@+id/login_signup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/registration"
