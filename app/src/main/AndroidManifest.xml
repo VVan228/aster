@@ -16,10 +16,10 @@
             android:name=".intarface.loginActivities.SignUpActivity"
             android:exported="false" />
         <activity
-            android:name=".intarface.loginActivities.ActivityLoginView"
+            android:name=".intarface.MainActivity"
             android:exported="false" />
         <activity
-            android:name=".intarface.MainActivity"
+            android:name=".intarface.loginActivities.ActivityLoginView"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
