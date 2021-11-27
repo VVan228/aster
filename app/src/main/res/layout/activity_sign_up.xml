@@ -21,16 +21,17 @@
             android:layout_marginTop="20dp">
 
             <TextView
-                android:id="@+id/order_no_photo"
+                android:id="@+id/sign_no_photo"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="нет фото"
                 android:gravity="center"
                 android:layout_weight="1"
                 android:layout_marginRight="25dp"/>
+
             <ImageView
+                android:id="@+id/sign_photo"
                 android:visibility="gone"
-                android:id="@+id/iv_pet_photo"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
