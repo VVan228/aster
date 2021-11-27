@@ -1,8 +1,8 @@
 package com.example.aster.intarface.loginActivities;
 
-public interface LoginInterface {
+public interface InterfaceSignUpView {
 
-    public void openIntent();
+    public void MainActivityOpen();
 
     public void showMessage(String message);
 }

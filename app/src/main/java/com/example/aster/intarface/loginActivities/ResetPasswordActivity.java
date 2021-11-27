@@ -1,16 +1,13 @@
 package com.example.aster.intarface.loginActivities;
 
-import androidx.appcompat.app.AppCompatActivity;
+import android.content.Intent;
+import android.widget.Toast;
 
-import android.os.Bundle;
-
-import com.example.aster.R;
-
-public class ResetPasswordActivity extends AppCompatActivity {
+public class ResetPasswordActivity implements InterfaceResetPasswordView{
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_reset_password);
+    public void showMessage(String message) {
+        //Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
+        return;
     }
 }

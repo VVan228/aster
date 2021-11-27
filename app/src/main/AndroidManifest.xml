@@ -16,7 +16,7 @@
             android:name=".intarface.loginActivities.SignUpActivity"
             android:exported="false" />
         <activity
-            android:name=".intarface.loginActivities.LoginActivity"
+            android:name=".intarface.loginActivities.ActivityLoginView"
             android:exported="false" />
         <activity
             android:name=".intarface.MainActivity"

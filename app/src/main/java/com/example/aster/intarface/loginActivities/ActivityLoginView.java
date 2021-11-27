@@ -9,7 +9,7 @@ import android.widget.Toast;
 import com.example.aster.R;
 import com.example.aster.intarface.MainActivity;
 
-public class LoginActivity extends AppCompatActivity implements LoginInterface {
+public class ActivityLoginView extends AppCompatActivity implements InterfaceLoginView {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,8 +19,8 @@ public class LoginActivity extends AppCompatActivity implements LoginInterface {
 
 
     @Override
-    public void openIntent() {
-        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+    public void MainActivityOpen() {
+        Intent intent = new Intent(ActivityLoginView.this, MainActivity.class);
         startActivity(intent);
         finish();
     }
