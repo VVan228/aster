@@ -14,7 +14,7 @@ public class EventsBus {
         observers.remove(observer);
     }
 
-    public static void post(LoginEvent event){
+    public static void post(Event event){
         for(Observer i: observers){
             i.onEvent(event);
         }

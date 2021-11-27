@@ -1,18 +1,11 @@
 package com.example.aster;
 
-import static com.example.aster.events.LoginEvent.eventType;
-
-import android.content.Intent;
-import android.view.View;
-import android.widget.Toast;
-
-import com.example.aster.events.LoginEvent;
+import com.example.aster.events.Event;
 import com.example.aster.events.Observer;
-import com.example.aster.intarface.MainActivity;
 
 public class LoginPresenter implements Observer {
 
-    public void which_error(LoginEvent event) {
+    public void which_error(Event event) {
         switch (event.type){
             case signIn:
 
@@ -29,7 +22,7 @@ public class LoginPresenter implements Observer {
     }
 
     @Override
-    public void onEvent(LoginEvent event) {
+    public void onEvent(Event event) {
         which_error(event);
     }
 }

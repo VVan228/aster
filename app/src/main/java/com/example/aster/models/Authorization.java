@@ -1,19 +1,17 @@
 package com.example.aster.models;
 
-import android.util.Log;
-
-import static com.example.aster.events.LoginEvent.eventType;
-import static com.example.aster.events.LoginEvent.eventType.delete;
-import static com.example.aster.events.LoginEvent.eventType.logOut;
-import static com.example.aster.events.LoginEvent.eventType.resetPassword;
-import static com.example.aster.events.LoginEvent.eventType.signIn;
-import static com.example.aster.events.LoginEvent.eventType.signUp;
-import static com.example.aster.events.LoginEvent.eventType.updateEmail;
-import static com.example.aster.events.LoginEvent.eventType.updatePassword;
+import static com.example.aster.events.Event.eventType;
+import static com.example.aster.events.Event.eventType.delete;
+import static com.example.aster.events.Event.eventType.logOut;
+import static com.example.aster.events.Event.eventType.resetPassword;
+import static com.example.aster.events.Event.eventType.signIn;
+import static com.example.aster.events.Event.eventType.signUp;
+import static com.example.aster.events.Event.eventType.updateEmail;
+import static com.example.aster.events.Event.eventType.updatePassword;
 
 import com.example.aster.entities.User;
 import com.example.aster.events.EventsBus;
-import com.example.aster.events.LoginEvent;
+import com.example.aster.events.Event;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
@@ -150,10 +148,10 @@ public class Authorization {
 
 
     void postEvent(eventType type, String message){
-        EventsBus.post(new LoginEvent(type, message));
+        EventsBus.post(new Event(type, message));
     }
-    void postEvent(LoginEvent.eventType type){
-        EventsBus.post(new LoginEvent(type));
+    void postEvent(Event.eventType type){
+        EventsBus.post(new Event(type));
     }
 
 

@@ -1,6 +1,6 @@
 package com.example.aster.events;
 
-public class LoginEvent {
+public class Event {
 
 
     public String message;
@@ -15,12 +15,12 @@ public class LoginEvent {
         delete,
     }
 
-    public LoginEvent(eventType type, String message) {
+    public Event(eventType type, String message) {
         this.message = message;
         this.type = type;
     }
 
-    public LoginEvent(eventType type) {
+    public Event(eventType type) {
         this.message = null;
         this.type = type;
     }
