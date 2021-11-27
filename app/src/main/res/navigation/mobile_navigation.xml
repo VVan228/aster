@@ -5,6 +5,7 @@
     android:id="@+id/mobile_navigation"
     app:startDestination="@+id/navigation_home">
 
+
     <fragment
         android:id="@+id/navigation_home"
         android:name="com.example.aster.ui.home.HomeFragment"
@@ -12,14 +13,20 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.example.aster.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        android:id="@+id/navigation_forum"
+        android:name="com.example.aster.ui.forum.ForumFragment"
+        android:label="@string/title_forum"
+        tools:layout="@layout/fragment_forum" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.example.aster.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:id="@+id/navigation_category"
+        android:name="com.example.aster.ui.category.CategoryFragment"
+        android:label="@string/title_category"
+        tools:layout="@layout/fragment_category" />
+
+    <fragment
+        android:id="@+id/navigation_account"
+        android:name="com.example.aster.ui.home.HomeFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_account" />
 </navigation>
