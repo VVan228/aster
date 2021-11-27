@@ -4,4 +4,9 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string name="email">email</string>
+    <string name="password">Пароль</string>
+    <string name="forgot_password">Забыл пароль</string>
+    <string name="registration">Регистрация</string>
+    <string name="sign_in">Зарегистрироваться</string>
 </resources>
