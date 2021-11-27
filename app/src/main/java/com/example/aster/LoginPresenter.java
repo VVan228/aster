@@ -1,14 +1,24 @@
 package com.example.aster;
 
+import android.content.Intent;
+import android.widget.Toast;
+
 import com.example.aster.events.Event;
 import com.example.aster.events.Observer;
+import com.example.aster.intarface.MainActivity;
 
 public class LoginPresenter implements Observer {
 
+    // get answer
     public void which_error(Event event) {
         switch (event.type){
             case signIn:
-
+                if (event.message == null){
+                    openIntent();
+                }
+                else {
+                    showMessage();
+                }
                 break;
             case signUp:
 

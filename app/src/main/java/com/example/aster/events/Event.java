@@ -25,5 +25,4 @@ public class Event {
         this.type = type;
     }
 
-
 }
