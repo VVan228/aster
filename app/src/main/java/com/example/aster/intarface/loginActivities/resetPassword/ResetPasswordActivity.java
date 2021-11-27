@@ -1,4 +1,4 @@
-package com.example.aster.intarface.loginActivities;
+package com.example.aster.intarface.loginActivities.resetPassword;
 
 import android.os.Bundle;
 import android.widget.Button;
@@ -8,8 +8,9 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.aster.R;
+import com.example.aster.intarface.loginActivities.resetPassword.InterfaceResetPasswordView;
 
-public class ResetPasswordActivity extends AppCompatActivity implements InterfaceResetPasswordView{
+public class ResetPasswordActivity extends AppCompatActivity implements InterfaceResetPasswordView {
 
     private EditText reset_email;
 

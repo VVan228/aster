@@ -5,16 +5,20 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.aster.R;
+import com.example.aster.entities.User;
+import com.example.aster.events.Event;
+import com.example.aster.events.EventsBus;
+import com.example.aster.events.Observer;
 import com.example.aster.intarface.MainActivity;
+import com.example.aster.models.Authorization;
 
-public class ActivityLoginView extends AppCompatActivity implements InterfaceLoginView {
+public class LoginActivity extends AppCompatActivity implements InterfaceLoginView {
     EditText email;
     EditText password;
     Button submit;
@@ -27,6 +31,17 @@ public class ActivityLoginView extends AppCompatActivity implements InterfaceLog
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        /*Authorization auth = new Authorization();
+        EventsBus.register(new Observer() {
+            @Override
+            public void onEvent(Event event) {
+                Log.d("tag4me", event.message + " 1");
+            }
+        });*/
+        //auth.signUp("vvan228@vk.com", "123456", new User("bob", "killer","","","vvan228@vk.com"));
+
+        //auth.deleteUser();
 
         presenter = new LoginPresenter(this);
 
@@ -44,7 +59,7 @@ public class ActivityLoginView extends AppCompatActivity implements InterfaceLog
 
     @Override
     public void openMainActivity() {
-        Intent intent = new Intent(ActivityLoginView.this, MainActivity.class);
+        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
         startActivity(intent);
         finish();
     }

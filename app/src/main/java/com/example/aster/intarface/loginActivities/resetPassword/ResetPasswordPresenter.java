@@ -5,9 +5,9 @@ import com.example.aster.events.Observer;
 
 public class ResetPasswordPresenter implements Observer {
 
-    ResetPasswordActivity view;
+     InterfaceResetPasswordView view;
 
-    ResetPasswordPresenter(ResetPasswordActivity view){
+    ResetPasswordPresenter(InterfaceResetPasswordView view){
         this.view = view;
     }
 

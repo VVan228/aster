@@ -32,16 +32,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
 
-        Authorization auth = new Authorization();
-        EventsBus.register(new Observer() {
-            @Override
-            public void onEvent(Event event) {
-                Log.d("tag4me", event.message + " 1");
-            }
-        });
-        auth.signUp("vvan228@vk.com", "123456", new User("bob", "killer","","","vvan228@vk.com"));
-
-        auth.deleteUser();
 
 
         BottomNavigationView navView = findViewById(R.id.nav_view);
