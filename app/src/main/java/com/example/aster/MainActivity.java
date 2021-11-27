@@ -14,10 +14,13 @@ import com.example.aster.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
 
+
+
+
     private ActivityMainBinding binding;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+        protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
