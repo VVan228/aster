@@ -51,7 +51,6 @@ public class MovieAdapter extends BaseAdapter {
             Picasso.with(mContext).load(movieList.get(i).getImageURL())
                     .into(image);
             name.setText(movieList.get(i).getName());
-            Log.d("tag4me", "im adapter");
         }
 
         return rowView;

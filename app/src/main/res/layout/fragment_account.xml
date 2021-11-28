@@ -14,38 +14,30 @@
         android:orientation="vertical">
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:id="@+id/imageView"
+            android:layout_width="350dp"
+            android:layout_height="200dp"
             android:orientation="vertical">
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <ImageView
-                    android:id="@+id/imageView"
-                    android:layout_width="350dp"
-                    android:layout_height="180dp"
-                    android:layout_gravity="top|center" />
+                android:layout_height="140dp">
 
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/circle_profile"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:layout_gravity="bottom|center"
-                    android:layout_marginBottom="10dp"
-                    android:src="@mipmap/ic_launcher" />
-
-                <TextView
-                    android:id="@+id/text_account"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_marginBottom="50dp"
-                    android:text="Наталья Смирнова"  />
+                    android:src="@mipmap/ic_launcher" />
 
             </androidx.cardview.widget.CardView>
 
+            <TextView
+                android:id="@+id/text_account"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Наталья Смирнова"  />
 
             <ImageButton
                 android:id="@+id/imageButton"
