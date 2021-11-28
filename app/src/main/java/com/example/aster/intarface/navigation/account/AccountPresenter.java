@@ -20,7 +20,6 @@ public class AccountPresenter implements Observer {
     Search searchModel;
     Data dataModel;
 
-    Post post;
 
     AccountPresenter(InterfaceAccountView view){
         this.view = view;
@@ -28,7 +27,8 @@ public class AccountPresenter implements Observer {
         searchModel = new Search();
         dataModel = new Data();
         EventsBus.register(this);
-        searchModel.loadUsersPosts(authModel.getCurUserId(), 1);
+        Log.d("tag4me", authModel.getCurUserId()+" 0");
+        searchModel.loadUsersPosts(authModel.getCurUserId(), 2);
     }
 
     private void loadPosts(ArrayList<PostSearch> posts){
@@ -54,8 +54,7 @@ public class AccountPresenter implements Observer {
                 loadPosts(searchModel.getUsersPosts());
                 break;
             case postLoaded:
-                post = dataModel.getPost();
-                view.addPost(post);
+                view.addPost(dataModel.getPost());
                 break;
         }
     }

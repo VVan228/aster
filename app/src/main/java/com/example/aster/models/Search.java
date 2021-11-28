@@ -107,14 +107,17 @@ public class Search {
         query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                PostSearch post = snapshot.getValue(PostSearch.class);
-                if(post != null){
-                    Log.d("tag4me", post.getLink() + " link");
-                    postUserRes.add(post);
-                    if(postUserRes.size() == n){
-                        postEvent(postsUsersLoaded);
+                for(DataSnapshot s: snapshot.getChildren()){
+                    PostSearch post = s.getValue(PostSearch.class);
+                    if(post != null){
+                        Log.d("tag4me", snapshot.getChildrenCount() + " num");
+                        postUserRes.add(post);
+                        if(postUserRes.size() >= n){
+                            postEvent(postsUsersLoaded);
+                        }
                     }
                 }
+
             }
 
             @Override

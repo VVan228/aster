@@ -18,6 +18,7 @@ import com.example.aster.events.EventsBus;
 import com.example.aster.events.Event;
 import com.example.aster.intarface.loginActivities.login.LoginActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -91,14 +92,14 @@ public class Authorization {
                         //signUp failure
                         postEvent(signUp, "error " + task.getException().getMessage());
                     }
-                }).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                }).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
             @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
+            public void onSuccess(AuthResult authResult) {
                 DatabaseReference query = FirebaseDatabase
                         .getInstance()
                         .getReference()
                         .child("users")
-                        .child(getCurUserId());
+                        .child(Objects.requireNonNull(authResult.getUser()).getUid());
                 query.keepSynced(true);
                 query.setValue(user);
             }
@@ -171,7 +172,7 @@ public class Authorization {
     }
 
     public String getCurUserId(){
-        return Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getDisplayName();
+        return Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid();
     }
 
 
