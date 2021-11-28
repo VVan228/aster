@@ -21,11 +21,13 @@ import java.util.Objects;
 
 public class Data {
     private final DatabaseReference ref;
-    private final String uid;
+    private String uid;
 
     public Data() {
         this.ref = FirebaseDatabase.getInstance().getReference();
-        this.uid = Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid();
+        if(FirebaseAuth.getInstance().getCurrentUser() != null){
+            this.uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        }
 
     }
 
