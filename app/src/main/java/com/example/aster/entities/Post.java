@@ -4,22 +4,42 @@ public class Post {
 
     String title;
     String link;
-    String article;
     int likes;
     int dislikes;
     int views;
     String commentsLink;
     long time;
+    String category;
+    String author;
 
-    public Post(String title, String link, String article, int likes, int dislikes, int views, String commentsLink, long time) {
+    public Post(String title, String link, int likes, int dislikes, int views, String commentsLink, long time, String category, String author) {
         this.title = title;
         this.link = link;
-        this.article = article;
         this.likes = likes;
         this.dislikes = dislikes;
         this.views = views;
         this.commentsLink = commentsLink;
         this.time = time;
+        this.category = category;
+        this.author = author;
+    }
+
+    public Post() {}
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
     }
 
     public String getTitle() {
@@ -36,14 +56,6 @@ public class Post {
 
     public void setLink(String link) {
         this.link = link;
-    }
-
-    public String getArticle() {
-        return article;
-    }
-
-    public void setArticle(String article) {
-        this.article = article;
     }
 
     public int getLikes() {

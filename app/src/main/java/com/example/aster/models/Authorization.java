@@ -20,6 +20,8 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.Objects;
+
 public class Authorization {
 
     private final FirebaseAuth auth;
@@ -150,6 +152,10 @@ public class Authorization {
         if(authListener != null){
             auth.removeAuthStateListener(authListener);
         }
+    }
+
+    public String getCurUserId(){
+        return Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid();
     }
 
 

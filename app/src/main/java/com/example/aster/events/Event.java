@@ -13,6 +13,9 @@ public class Event {
         updateEmail,
         updatePassword,
         delete,
+
+        postsViaTimeLoaded,
+        postsUsers
     }
 
     public Event(eventType type, String message) {
