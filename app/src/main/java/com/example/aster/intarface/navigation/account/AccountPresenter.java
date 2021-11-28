@@ -28,7 +28,7 @@ public class AccountPresenter implements Observer {
         dataModel = new Data();
         EventsBus.register(this);
         Log.d("tag4me", authModel.getCurUserId()+" 0");
-        searchModel.loadUsersPosts(authModel.getCurUserId(), 2);
+        searchModel.loadUsersPosts(authModel.getCurUserId(), 1);
 
         dataModel.loadUser(authModel.getCurUserId());
     }
