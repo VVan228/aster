@@ -28,8 +28,6 @@ public class HomeFragment extends Fragment {
 
     private FragmentHomeBinding binding;
 
-    private FeatureCoverFlow coverFlow;
-    private MovieAdapter movieAdapter;
     private List<CoverMovie> movieList = new ArrayList<>();
     private TextSwitcher mTitle;
 
@@ -61,8 +59,8 @@ public class HomeFragment extends Fragment {
         mTitle.setOutAnimation(out);
 
         //set adapter for cover flow
-        movieAdapter = new MovieAdapter(movieList, getActivity());
-        coverFlow = binding.homeCoverflow;
+        MovieAdapter movieAdapter = new MovieAdapter(movieList, getActivity());
+        FeatureCoverFlow coverFlow = binding.homeCoverflow;
         coverFlow.setAdapter(movieAdapter);
 
         coverFlow.setOnScrollPositionListener(new FeatureCoverFlow.OnScrollPositionListener() {
