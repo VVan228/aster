@@ -15,7 +15,10 @@ public class Event {
         delete,
 
         postsViaTimeLoaded,
-        postsUsers
+        postsUsersLoaded,
+
+        postLoaded,
+        userLoaded,
     }
 
     public Event(eventType type, String message) {

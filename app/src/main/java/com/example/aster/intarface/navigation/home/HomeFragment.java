@@ -91,9 +91,14 @@ public class HomeFragment extends Fragment {
     private void initData() {
 
         movieList.add(new CoverMovie("Когда выгоднее покупать валюту", "https://avatars.mds.yandex.net/get-zen-pub-og/1641076/pub_5c5f10fd64276e00ae3e03be_5c64773265c9a700ba7aa408/orig"));
-        movieList.add(new CoverMovie("Как заработать на инвестициях", "http://tv-bis.ru/wp-content/uploads/2017/08/672.jpg"));
-        movieList.add(new CoverMovie("Когда выгоднее покупать валюту", "https://avatars.mds.yandex.net/get-zen-pub-og/1641076/pub_5c5f10fd64276e00ae3e03be_5c64773265c9a700ba7aa408/orig"));
-        movieList.add(new CoverMovie("Как заработать на инвестициях", "http://tv-bis.ru/wp-content/uploads/2017/08/672.jpg"));
+        movieList.add(new CoverMovie("Что такое инвестиции", "https://mulino58.ru/wp-content/uploads/5/9/2/59249b47fed1b6aa04b14b15fbcaf79c.png"));
+        movieList.add(new CoverMovie("Когда и как покупать валюту", "https://i.ytimg.com/vi/2AR9hl-CM5I/maxresdefault.jpg"));
+        movieList.add(new CoverMovie("3 ways to make money", "https://i.ytimg.com/vi/FCi0x5suBUg/maxresdefault.jpg"));
+
+        movieList.add(new CoverMovie("Биткоин", "https://avatars.mds.yandex.net/get-zen_doc/58826/pub_5b154dc65a104ffc19653770_5b154f5d77d0e6b3a92abbc7/scale_1200"));
+        movieList.add(new CoverMovie("Высокорисковые инвестиции", "https://investblog.biz/wp-content/uploads/2020/08/High_risk.png"));
+        movieList.add(new CoverMovie("Как собрать инвестиционный портфель", "https://avatars.mds.yandex.net/get-zen-pub-og/1520034/pub_5c72bf4cb40ff300b344dc55_5c72c5b2694ebb00ba19af78/orig"));
+
 
     }
 }

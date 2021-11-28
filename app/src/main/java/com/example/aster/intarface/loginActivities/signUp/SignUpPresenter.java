@@ -1,5 +1,8 @@
 package com.example.aster.intarface.loginActivities.signUp;
 
+import android.content.SharedPreferences;
+import android.util.Log;
+
 import com.example.aster.entities.User;
 import com.example.aster.events.Event;
 import com.example.aster.events.EventsBus;
@@ -25,6 +28,7 @@ public class SignUpPresenter implements Observer {
 
         if (event.message == null){
             view.openMainActivity();
+            Log.d("tag4me", model.getCurUserId() + " 1121");
         }
         else {
             view.showMessage(event.message);
@@ -39,8 +43,7 @@ public class SignUpPresenter implements Observer {
 
 
     public void onSubmit(String email, String password, User user) {
-        model.signUp(email, password);
-        dataModel.addUser(user);
+        model.signUp(email, password, user);
     }
 
     public void onDestroy() {

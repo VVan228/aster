@@ -3,7 +3,7 @@ package com.example.aster.entities;
 public class Post {
 
     String title;
-    String link;
+    String text;
     int likes;
     int dislikes;
     int views;
@@ -12,9 +12,9 @@ public class Post {
     String category;
     String author;
 
-    public Post(String title, String link, int likes, int dislikes, int views, String commentsLink, long time, String category, String author) {
+    public Post(String title, String text, int likes, int dislikes, int views, String commentsLink, long time, String category, String author) {
         this.title = title;
-        this.link = link;
+        this.text = text;
         this.likes = likes;
         this.dislikes = dislikes;
         this.views = views;
@@ -50,12 +50,12 @@ public class Post {
         this.title = title;
     }
 
-    public String getLink() {
-        return link;
+    public String getText() {
+        return text;
     }
 
-    public void setLink(String link) {
-        this.link = link;
+    public void setText(String text) {
+        this.text = text;
     }
 
     public int getLikes() {

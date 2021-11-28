@@ -11,10 +11,15 @@ import static com.example.aster.events.Event.eventType.updatePassword;
 
 import android.content.Context;
 
+import androidx.annotation.NonNull;
+
 import com.example.aster.entities.User;
 import com.example.aster.events.EventsBus;
 import com.example.aster.events.Event;
 import com.example.aster.intarface.loginActivities.login.LoginActivity;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
@@ -76,7 +81,7 @@ public class Authorization {
                 });
     }
 
-    public void signUp(String email, String password){
+    public void signUp(String email, String password, User user){
         auth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
@@ -86,7 +91,18 @@ public class Authorization {
                         //signUp failure
                         postEvent(signUp, "error " + task.getException().getMessage());
                     }
-                });
+                }).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                DatabaseReference query = FirebaseDatabase
+                        .getInstance()
+                        .getReference()
+                        .child("users")
+                        .child(getCurUserId());
+                query.keepSynced(true);
+                query.setValue(user);
+            }
+        });
     }
 
 
@@ -155,7 +171,7 @@ public class Authorization {
     }
 
     public String getCurUserId(){
-        return Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid();
+        return Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getDisplayName();
     }
 
 

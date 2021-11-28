@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Aster">
         <activity
-            android:name=".item_forum"
+            android:name=".intarface.postCreation.PostCreationActivity"
             android:exported="false" />
         <activity
             android:name=".intarface.loginActivities.resetPassword.ResetPasswordActivity"
