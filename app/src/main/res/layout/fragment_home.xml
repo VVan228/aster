@@ -11,37 +11,40 @@
         android:orientation="horizontal"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:gravity="top">
+        android:gravity="top"
+        android:layout_margin="10dp">
 
         <EditText
             android:id="@+id/home_finding"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="35dp"
             android:hint="@string/ressearch"
-            android:layout_weight="100.0" />
+            android:layout_weight="100.0"
+            android:layout_margin="5dp"
+            android:background="@color/background"/>
 
         <Button
             android:id="@+id/home_bth_to_find"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/find" />
+            android:text="@string/find"
+            android:textColor="@color/text_button"
+            android:backgroundTint="@color/blue" />
     </LinearLayout>
 
     <ListView
         android:id="@android:id/list"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content" />
-
-    <TextView
-        android:layout_gravity="left"
-        android:id="@android:id/empty"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:text="Запись"/>
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:layout_margin="10dp"/>
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:hint="Может быть интересно"
+        android:textColor="@color/text_button"
+        android:textSize="20dp"
+        android:layout_margin="20dp"/>
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -50,7 +53,7 @@
         <it.moondroid.coverflow.components.ui.containers.FeatureCoverFlow
             android:id="@+id/home_coverflow"
             android:layout_width="match_parent"
-            android:layout_height="100px"
+            android:layout_height="600px"
             app:coverHeight="200dp"
             app:coverWidth="140dp"
             app:maxScaleFactor="1.5"
@@ -58,7 +61,7 @@
             app:rotationThreshold="0.5"
             app:scalingThreshold="0.5"
             app:spacing="0.6"
-            />
+            android:background="@color/light_blue"/>
         <TextSwitcher
             android:id="@+id/home_title"
             android:layout_width="match_parent"
