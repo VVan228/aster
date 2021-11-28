@@ -29,6 +29,8 @@ public class AccountPresenter implements Observer {
         EventsBus.register(this);
         Log.d("tag4me", authModel.getCurUserId()+" 0");
         searchModel.loadUsersPosts(authModel.getCurUserId(), 2);
+
+        dataModel.loadUser(authModel.getCurUserId());
     }
 
     private void loadPosts(ArrayList<PostSearch> posts){
@@ -55,6 +57,11 @@ public class AccountPresenter implements Observer {
                 break;
             case postLoaded:
                 view.addPost(dataModel.getPost());
+                break;
+            case userLoaded:
+                view.changeUsername(dataModel.getUser().getName() +
+                        " " +
+                        dataModel.getUser().getSurname());
                 break;
         }
     }

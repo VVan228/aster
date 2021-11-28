@@ -48,9 +48,6 @@ public class AccountFragment extends Fragment implements InterfaceAccountView{
 
         });
 
-
-        final TextView textView = binding.accountName;
-        textView.setText("account mf");
         return root;
     }
 
@@ -71,5 +68,11 @@ public class AccountFragment extends Fragment implements InterfaceAccountView{
     public void addPost(Post post) {
         states.add(states.size(),post);
         postAdapter.notifyItemInserted(states.size()-1);
+    }
+
+    @Override
+    public void changeUsername(String title) {
+        final TextView textView = binding.accountName;
+        textView.setText(title);
     }
 }
