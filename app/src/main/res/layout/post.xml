@@ -2,28 +2,38 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="25dp">
+
+
 
     <TextView
+        android:textColor="@color/blue"
+        android:textSize="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="username"
         android:id="@+id/post_username"/>
     <TextView
+        android:textColor="@color/light_blue"
+        android:textSize="15dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="title"
         android:id="@+id/post_title"/>
 
     <ImageView
+        android:layout_marginTop="15dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/post_image"/>
+        android:layout_height="match_parent"
+        android:id="@+id/post_image"
+        android:src="@drawable/placeholder_img"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginLeft="200dp">
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="70dp">
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

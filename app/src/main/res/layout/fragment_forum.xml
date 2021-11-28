@@ -33,10 +33,13 @@
             android:backgroundTint="@color/blue"/>
     </LinearLayout>
 
-    <ListView
+    <TextView
+        android:text="сортировка: Дата"
+        android:textSize="15dp"
+        android:layout_gravity="right"
         android:id="@+id/forum_sort_list"
         android:layout_width="150dp"
-        android:layout_height="50dp"
+        android:layout_height="30dp"
         android:background="@color/light_blue"
         android:layout_margin="10dp"/>
 

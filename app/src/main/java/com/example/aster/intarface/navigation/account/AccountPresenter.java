@@ -20,8 +20,16 @@ public class AccountPresenter implements Observer {
     Search searchModel;
     Data dataModel;
 
+    boolean nameLoaded;
+
+
+    Post p;
+    User u;
+
 
     AccountPresenter(InterfaceAccountView view){
+        nameLoaded = false;
+
         this.view = view;
         authModel = new Authorization();
         searchModel = new Search();
@@ -37,9 +45,20 @@ public class AccountPresenter implements Observer {
         for(PostSearch p: posts){
             Log.d("tag4me", p.toString());
             dataModel.loadPost(p.getLink());
+            dataModel.loadUser(p.getAuthor());
         }
     }
 
+
+
+    void check(){
+        if(u!=null && p!=null){
+            p.setAuthor(u.getName() + " " + u.getSurname());
+            view.addPost(p);
+            p = null;
+            u = null;
+        }
+    }
 
 
     public void onFabClick(){
@@ -56,12 +75,21 @@ public class AccountPresenter implements Observer {
                 loadPosts(searchModel.getUsersPosts());
                 break;
             case postLoaded:
-                view.addPost(dataModel.getPost());
+                //view.addPost(dataModel.getPost());
+                p = dataModel.getPost();
+                check();
                 break;
             case userLoaded:
-                view.changeUsername(dataModel.getUser().getName() +
-                        " " +
-                        dataModel.getUser().getSurname());
+                if(!nameLoaded){
+                    view.changeUsername(dataModel.getUser().getName() +
+                            " " +
+                            dataModel.getUser().getSurname());
+                    nameLoaded = true;
+                }else{
+                    u = dataModel.getUser();
+                    check();
+                }
+
                 break;
         }
     }

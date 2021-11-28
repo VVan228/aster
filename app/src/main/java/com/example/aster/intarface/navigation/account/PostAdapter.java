@@ -34,8 +34,8 @@ public class PostAdapter extends RecyclerView.Adapter<ViewHolder>{
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Post state = states.get(position);
         //holder.flagView.setImageResource(state.getFlagResource());
-        holder.username.setText(state.getAuthor());
-        holder.title.setText(state.getTitle());
+        holder.username.setText(state.getTitle());
+        holder.title.setText(state.getText());
         holder.dislikes.setText(String.valueOf(state.getDislikes()));
         holder.likes.setText(String.valueOf(state.getLikes()));
     }
