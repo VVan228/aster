@@ -49,7 +49,7 @@ public class Search {
     }
 
 
-    public ArrayList<PostSearch> getPosts(){
+    public ArrayList<PostSearch> getLatestPosts(){
         ArrayList<PostSearch> res = postRes;
         postRes = null;
         return res;
@@ -65,6 +65,7 @@ public class Search {
     }
     public void loadNewestPosts(int n){
         Query query;
+        postRes = new ArrayList<>();
         if(lastTimePost == 0){
             query = getPostsSearch().orderByChild("time").limitToLast(n);
         }else{

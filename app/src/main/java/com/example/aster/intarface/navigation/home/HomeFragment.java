@@ -17,7 +17,12 @@ import com.example.aster.CoverMovie;
 import com.example.aster.MovieAdapter;
 import com.example.aster.R;
 import com.example.aster.databinding.FragmentHomeBinding;
+import com.example.aster.entities.PostSearch;
+import com.example.aster.events.Event;
+import com.example.aster.events.Observer;
 import com.example.aster.intarface.MainActivity;
+import com.example.aster.models.Data;
+import com.example.aster.models.Search;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -89,7 +94,6 @@ public class HomeFragment extends Fragment {
      * Add name and image to movie
      */
     private void initData() {
-
         movieList.add(new CoverMovie("Когда выгоднее покупать валюту", "https://avatars.mds.yandex.net/get-zen-pub-og/1641076/pub_5c5f10fd64276e00ae3e03be_5c64773265c9a700ba7aa408/orig"));
         movieList.add(new CoverMovie("Что такое инвестиции", "https://mulino58.ru/wp-content/uploads/5/9/2/59249b47fed1b6aa04b14b15fbcaf79c.png"));
         movieList.add(new CoverMovie("Когда и как покупать валюту", "https://i.ytimg.com/vi/2AR9hl-CM5I/maxresdefault.jpg"));
