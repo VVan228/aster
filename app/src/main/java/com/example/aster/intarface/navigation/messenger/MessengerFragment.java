@@ -21,8 +21,7 @@ public class MessengerFragment extends Fragment {
         binding = FragmentMessengerBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textMessenger;
-        textView.setText("messenger mf");
+
         return root;
     }
 
