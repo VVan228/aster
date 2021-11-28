@@ -8,103 +8,54 @@
     android:orientation="vertical"
     android:id="@+id/account_fragment">
 
-
-
-
-
-    <LinearLayout
-
+    <TableLayout
+        android:id="@+id/category_"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="500dp"
+        android:layout_margin="40dp"
+        android:background="@drawable/adding_article_border">
 
-
-    <LinearLayout
-
-        android:layout_weight="1"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal">
-        <Button
-            android:textSize="30dp"
-            android:textStyle="bold"
-            android:layout_margin="10dp"
-            android:background="#3cf"
-            android:id="@+id/stock"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="Акции" />
-        <Button
-            android:textSize="30dp"
-            android:textStyle="bold"
-            android:layout_margin="10dp"
-            android:background="#3cf"
-            android:id="@+id/Bond"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="Облигации" />
-
-    </LinearLayout>
-        <LinearLayout
-            android:layout_weight="1"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
+        <TableRow>
             <Button
-                android:textSize="40dp"
-                android:textStyle="bold"
-                android:layout_margin="10dp"
-                android:background="#3cf"
-                android:id="@+id/Currency"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="Валюта" />
-            <Button
-                android:textSize="30dp"
-                android:textStyle="bold"
-                android:layout_margin="10dp"
-                android:background="#3cf"
-                android:id="@+id/Directives"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="Директивы" />
+                android:text="Акции"
+                android:padding="5dp" />
 
-        </LinearLayout>
-
-        <LinearLayout
-
-            android:layout_weight="1"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
             <Button
-                android:textSize="30dp"
-                android:textStyle="bold"
-                android:layout_margin="10dp"
-                android:background="#3cf"
-                android:layout_weight="1"
-                android:id="@+id/Precious_Metals"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="Драг металлы" />
+                android:text="Облигации"
+                android:padding="5dp" />
+        </TableRow>
+        <TableRow>
             <Button
-                android:textSize="30dp"
-                android:textStyle="bold"
-                android:layout_margin="10dp"
-                android:background="#3cf"
-                android:layout_weight="1"
-                android:id="@+id/Foundations"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:text="Валюта"
+                android:padding="5dp" />
+
+            <Button
+                android:text="Директивы"
+                android:padding="5dp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="182dp">
+
+            <Button
+                android:padding="5dp"
+                android:text="Драгоценные металлы" />
+
+            <Button
+                android:padding="5dp"
                 android:text="Фонды" />
+        </TableRow>
+    </TableLayout>
 
-        </LinearLayout>
 
-    </LinearLayout>
+
+
+
+
+
+
+
 
 
 </RelativeLayout>

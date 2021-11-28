@@ -61,7 +61,7 @@
             app:rotationThreshold="0.5"
             app:scalingThreshold="0.5"
             app:spacing="0.6"
-            android:background="@color/light_blue"/>
+            android:background="#DCE1E6"/>
         <TextSwitcher
             android:id="@+id/home_title"
             android:layout_width="match_parent"
