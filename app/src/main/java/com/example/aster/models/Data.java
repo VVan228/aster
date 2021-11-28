@@ -7,6 +7,7 @@ import androidx.annotation.Nullable;
 
 import com.example.aster.entities.Comment;
 import com.example.aster.entities.Post;
+import com.example.aster.entities.PostSearch;
 import com.example.aster.entities.Theme;
 import com.example.aster.entities.User;
 import com.google.firebase.auth.FirebaseAuth;
@@ -62,16 +63,23 @@ public class Data {
         DatabaseReference query = getPosts().push();
         query.keepSynced(true);
         query.setValue(post);
+        addSearchPost(new PostSearch(post.getLink(), post.getAuthor(), post.getViews(), post.getTime(), post.getCategory()));
     }
     public void addTheme(Theme theme){
         DatabaseReference query = getThemes().push();
         query.keepSynced(true);
         query.setValue(theme);
     }
-    public void addSubscriber(String key){
-        DatabaseReference query = getSubscribers().child(uid).push();
+    public void addSubscriber(String toWhom, String who){
+        DatabaseReference query = getSubscribers().child(toWhom).push();
         query.keepSynced(true);
-        query.setValue(key);
+        query.setValue(who);
+    }
+    public void addSearchPost(PostSearch post){
+        DatabaseReference r = ref.child("search").child("posts");
+        DatabaseReference q = r.push();
+        q.keepSynced(true);
+        q.setValue(post);
     }
 
 

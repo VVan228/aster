@@ -1,9 +1,15 @@
 package com.example.aster.models;
 
+import static com.example.aster.events.Event.eventType.postsUsers;
+import static com.example.aster.events.Event.eventType.postsViaTimeLoaded;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.example.aster.entities.Post;
+import com.example.aster.entities.PostSearch;
+import com.example.aster.events.Event;
+import com.example.aster.events.EventsBus;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -11,6 +17,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -22,7 +29,8 @@ public class Search {
     private final String uid;
     int timeCounterPost;
     long lastTimePost;
-    ArrayList<Post> postRes;
+    ArrayList<PostSearch> postRes;
+    ArrayList<PostSearch> postUserRes;
 
     Search(){
         this.ref = FirebaseDatabase.getInstance().getReference();
@@ -35,13 +43,18 @@ public class Search {
         return ref.child("subscribers").child(uid);
     }
     private DatabaseReference getPostsSearch(){
-        return ref.child("posts");
+        return ref.child("search").child("posts");
     }
 
 
-    public ArrayList<Post> getPosts(){
-        ArrayList<Post> res = postRes;
+    public ArrayList<PostSearch> getPosts(){
+        ArrayList<PostSearch> res = postRes;
         postRes = null;
+        return res;
+    }
+    public ArrayList<PostSearch> getUserPosts(){
+        ArrayList<PostSearch> res = postUserRes;
+        postUserRes = null;
         return res;
     }
 
@@ -61,6 +74,7 @@ public class Search {
                 Post post = snapshot.getValue(Post.class);
                 if(postRes.size()==n && post != null){
                     lastTimePost = post.getTime();
+                    postEvent(postsViaTimeLoaded);
                 }
             }
 
@@ -85,4 +99,34 @@ public class Search {
             }
         });
     }
+    public void getUsersPosts(String key, int n){
+        Query query = getPostsSearch().orderByChild("author").equalTo(key).limitToFirst(n);
+        query.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                PostSearch post = snapshot.getValue(PostSearch.class);
+                if(post != null){
+                    postUserRes.add(post);
+                    if(postUserRes.size() == n){
+                        postEvent(postsUsers);
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
+
+
+
+    void postEvent(Event.eventType type, String message){
+        EventsBus.post(new Event(type, message));
+    }
+    void postEvent(Event.eventType type){
+        EventsBus.post(new Event(type));
+    }
+
 }
