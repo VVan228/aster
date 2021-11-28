@@ -11,51 +11,83 @@
     <TableLayout
         android:id="@+id/category_"
         android:layout_width="match_parent"
-        android:layout_height="500dp"
-        android:layout_margin="40dp"
+        android:layout_height="600dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="40dp"
         android:background="@drawable/adding_article_border">
 
         <TableRow>
-            <Button
-                android:text="Акции"
-                android:padding="5dp" />
 
             <Button
-                android:text="Облигации"
-                android:padding="5dp" />
-        </TableRow>
-        <TableRow>
-            <Button
-                android:text="Валюта"
-                android:padding="5dp" />
-
-            <Button
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/ic_rectangle_11__3_"
                 android:padding="5dp"
-                android:text="Директивы" />
+                android:text="Акции"
+                android:textSize="12dp" />
+
+            <Button
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/ic_rectangle_11__3_"
+                android:padding="5dp"
+                android:text="Облигации"
+                android:textSize="12dp" />
+        </TableRow>
+
+        <TableRow>
+
+            <Button
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="3dp"
+                android:background="@drawable/ic_rectangle_11__3_"
+                android:padding="5dp"
+                android:text="Валюта"
+                android:textSize="12dp" />
+
+            <Button
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="3dp"
+                android:background="@drawable/ic_rectangle_11__3_"
+                android:padding="5dp"
+                android:text="Директивы"
+                android:textSize="12dp" />
         </TableRow>
 
         <TableRow
             android:layout_width="wrap_content"
-            android:layout_height="182dp">
+            android:layout_height="131dp">
 
             <Button
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="-5dp"
+                android:background="@drawable/ic_rectangle_11__3_"
                 android:padding="5dp"
-                android:text="Драгоценные металлы" />
+                android:text="Драгоценные металлы"
+                android:textSize="10dp" />
 
             <Button
-                android:padding="5dp"
-                android:text="Фонды" />
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="3dp"
+                android:background="@drawable/ic_rectangle_11__3_"
+                android:padding="4dp"
+                android:text="Фонды"
+                android:textSize="12dp" />
+
         </TableRow>
     </TableLayout>
-
-
-
-
-
-
-
-
-
-
-
 </RelativeLayout>
