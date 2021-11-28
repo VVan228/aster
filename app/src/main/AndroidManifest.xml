@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Aster">
         <activity
+            android:name=".item_forum"
+            android:exported="false" />
+        <activity
             android:name=".intarface.loginActivities.resetPassword.ResetPasswordActivity"
             android:exported="false" />
         <activity
