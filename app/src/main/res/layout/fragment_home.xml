@@ -36,7 +36,8 @@
         android:id="@android:id/list"
         android:layout_width="match_parent"
         android:layout_height="10dp"
-        android:layout_margin="10dp"/>
+        android:layout_margin="10dp"
+        android:background="@color/blue"/>
 
     <TextView
         android:layout_width="match_parent"
@@ -62,6 +63,7 @@
             app:scalingThreshold="0.5"
             app:spacing="0.6"
             android:background="#DCE1E6"/>
+
         <TextSwitcher
             android:id="@+id/home_title"
             android:layout_width="match_parent"
@@ -71,6 +73,7 @@
             android:layout_centerVertical="true">
 
         </TextSwitcher>
+
     </RelativeLayout>
 
 </LinearLayout>

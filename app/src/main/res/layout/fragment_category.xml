@@ -30,8 +30,8 @@
                 android:padding="5dp" />
 
             <Button
-                android:text="Директивы"
-                android:padding="5dp" />
+                android:padding="5dp"
+                android:text="Директивы" />
         </TableRow>
 
         <TableRow
