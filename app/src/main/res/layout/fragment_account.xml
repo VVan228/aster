@@ -8,7 +8,6 @@
     android:orientation="vertical"
     android:id="@+id/account_fragment">
 
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -25,29 +24,9 @@
 
                 <ImageView
                     android:id="@+id/imageView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="top|center"
-                    android:src="@drawable/ic_rectangle_10" />
-
-
-
-                <ImageButton
-                    android:id="@+id/imageButton"
-                    android:layout_width="134dp"
-                    android:layout_margin="12dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="bottom|end"
-                    android:src="@drawable/ic_rectangle_11" />
-
-                <TextView
-                    android:id="@+id/text_account"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginBottom="50dp"
-                    android:text="Наталья Смирнова"
-                    />
+                    android:layout_width="350dp"
+                    android:layout_height="180dp"
+                    android:layout_gravity="top|center" />
 
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/circle_profile"
@@ -57,7 +36,23 @@
                     android:layout_marginBottom="10dp"
                     android:src="@mipmap/ic_launcher" />
 
+                <TextView
+                    android:id="@+id/text_account"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="50dp"
+                    android:text="Наталья Смирнова"  />
+
             </androidx.cardview.widget.CardView>
+
+
+            <ImageButton
+                android:id="@+id/imageButton"
+                android:layout_width="134dp"
+                android:layout_margin="5dp"
+                android:layout_height="40dp"
+                android:layout_gravity="bottom|end" />
         </LinearLayout>
 
         <LinearLayout

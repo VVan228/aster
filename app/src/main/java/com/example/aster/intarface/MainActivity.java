@@ -1,8 +1,19 @@
 package com.example.aster.intarface;
 
+import android.graphics.drawable.Animatable;
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.TextSwitcher;
+import android.widget.TextView;
+import android.widget.ViewSwitcher;
 
+import com.example.aster.CoverMovie;
+import com.example.aster.MovieAdapter;
 import com.example.aster.R;
 import com.example.aster.entities.User;
 import com.example.aster.events.Event;
@@ -21,6 +32,11 @@ import androidx.navigation.ui.NavigationUI;
 import com.example.aster.databinding.ActivityMainBinding;
 import com.google.firebase.auth.FirebaseAuth;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import it.moondroid.coverflow.components.ui.containers.FeatureCoverFlow;
+
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
@@ -31,9 +47,6 @@ public class MainActivity extends AppCompatActivity {
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
-
-
 
         BottomNavigationView navView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
