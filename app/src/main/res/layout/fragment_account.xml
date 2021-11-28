@@ -23,12 +23,17 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="140dp">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/blue" />
 
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/account_circle_profile"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_gravity="center"
+                    android:background="@color/white"
                     android:src="@drawable/baseline_account_circle_18" />
 
             </androidx.cardview.widget.CardView>
@@ -40,12 +45,16 @@
                 android:layout_gravity="center"
                 android:text="User" />
 
-            <ImageButton
+            <Button
                 android:id="@+id/account_follow"
                 android:layout_width="134dp"
                 android:layout_height="40dp"
                 android:layout_gravity="bottom|end"
-                android:layout_margin="5dp" />
+                android:layout_marginRight="10dp"
+                android:backgroundTint="@color/light_blue"
+                android:text="Подписаться"
+                android:textColor="@color/text_button"
+                android:textSize="10dp"/>
         </LinearLayout>
 
 

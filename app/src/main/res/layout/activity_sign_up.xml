@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
+    android:background="@color/background"
     tools:context=".intarface.loginActivities.signUp.SignUpActivity">
 
     <LinearLayout
@@ -42,7 +43,9 @@
                 android:layout_width="match_parent"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:text="Загрузить фото" />
+                android:text="Загрузить фото"
+                android:textColor="@color/text_button"
+                android:backgroundTint="@color/light_blue"/>
 
         </LinearLayout>
 
@@ -116,7 +119,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:layout_marginHorizontal="25dp"
-        android:text="@string/sign_in" />
+        android:text="@string/sign_in"
+        android:textColor="@color/text_button"
+        android:backgroundTint="@color/light_blue"/>
 
 
     <ProgressBar

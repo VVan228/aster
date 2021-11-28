@@ -43,6 +43,7 @@
             android:layout_height="50dp"
             android:layout_weight="1"
             android:layout_margin="30dp"
+            android:backgroundTint="@color/light_blue"
             android:text="@string/send"/>
     </LinearLayout>
 

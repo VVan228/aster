@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,52 +8,42 @@
     android:orientation="vertical"
     android:id="@+id/account_fragment">
 
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="top"
+        android:layout_margin="10dp">
 
+        <EditText
+            android:id="@+id/home_finding"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:hint="@string/ressearch"
+            android:layout_weight="100.0"
+            android:layout_margin="5dp"
+            android:background="@color/background"/>
 
+        <Button
+            android:id="@+id/home_bth_to_find"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/find"
+            android:textColor="@color/text_button"
+            android:backgroundTint="@color/blue"/>
+    </LinearLayout>
 
+    <ListView
+        android:id="@+id/forum_sort_list"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:background="@color/light_blue"
+        android:layout_margin="10dp"/>
 
-        <LinearLayout
+    <ListView
+        android:id="@+id/forum_list"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"/>
 
-
-
-
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/search"
-                    android:layout_width="144dp"
-                    android:layout_height="43dp"
-                    android:text="Поиск" />
-
-
-                <TextView
-                    android:id="@+id/date"
-                    android:layout_width="155dp"
-                    android:layout_height="44dp"
-                    android:background="@color/teal_700"
-                    android:text="Дата" />
-    </LinearLayout>
-            <TextView
-                android:id="@+id/forum"
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:background="@color/purple_200"
-                android:text="Сфоткай типо форум" />
-
-    </LinearLayout>
-
-
-
-
-
-
-
-
-</RelativeLayout>
+</LinearLayout>

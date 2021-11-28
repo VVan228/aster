@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
+    android:background="@color/background"
     tools:context=".intarface.loginActivities.login.LoginActivity"
     android:orientation="vertical">
 
@@ -36,7 +37,9 @@
             android:id="@+id/login_submit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Вход" />
+            android:text="Вход"
+            android:textColor="@color/text_button"
+            android:backgroundTint="@color/light_blue"/>
 
         <TextView
             android:id="@+id/login_reset_password"
@@ -52,7 +55,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/registration"
-            android:layout_marginTop="20dp"/>
+            android:layout_marginTop="20dp"
+            android:textColor="@color/text_button"
+            android:backgroundTint="@color/blue"/>
 
     </LinearLayout>
 </LinearLayout>
