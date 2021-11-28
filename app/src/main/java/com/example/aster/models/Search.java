@@ -1,7 +1,9 @@
 package com.example.aster.models;
 
-import static com.example.aster.events.Event.eventType.postsUsers;
+import static com.example.aster.events.Event.eventType.postsUsersLoaded;
 import static com.example.aster.events.Event.eventType.postsViaTimeLoaded;
+
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -32,7 +34,7 @@ public class Search {
     ArrayList<PostSearch> postRes;
     ArrayList<PostSearch> postUserRes;
 
-    Search(){
+    public Search(){
         this.ref = FirebaseDatabase.getInstance().getReference();
         this.uid = Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid();
         lastTimePost = 0;
@@ -52,7 +54,7 @@ public class Search {
         postRes = null;
         return res;
     }
-    public ArrayList<PostSearch> getUserPosts(){
+    public ArrayList<PostSearch> getUsersPosts(){
         ArrayList<PostSearch> res = postUserRes;
         postUserRes = null;
         return res;
@@ -99,16 +101,18 @@ public class Search {
             }
         });
     }
-    public void getUsersPosts(String key, int n){
+    public void loadUsersPosts(String key, int n){
         Query query = getPostsSearch().orderByChild("author").equalTo(key).limitToFirst(n);
+        postUserRes = new ArrayList<>();
         query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 PostSearch post = snapshot.getValue(PostSearch.class);
                 if(post != null){
+                    Log.d("tag4me", post.getLink() + " link");
                     postUserRes.add(post);
                     if(postUserRes.size() == n){
-                        postEvent(postsUsers);
+                        postEvent(postsUsersLoaded);
                     }
                 }
             }

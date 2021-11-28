@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/post_creation_title"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/adding_article_border"
+        android:hint="Заголовок"
+        android:inputType="text"
+        android:padding="10dp"
+        android:layout_margin="20dp"/>
+
+    <EditText
+        android:id="@+id/post_creation_text"
+        android:layout_width="match_parent"
+        android:layout_height="356dp"
+        android:background="@drawable/adding_article_border"
+        android:hint="Текст"
+        android:inputType="text"
+        android:padding="10dp"
+        android:layout_margin="20dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+        <ListView
+            android:id="@+id/adding_article_types"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:layout_margin="30dp" />
+
+        <Button
+            android:id="@+id/post_creation_submit"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:layout_margin="30dp"
+            android:text="@string/send"/>
+    </LinearLayout>
+
+
+</LinearLayout>

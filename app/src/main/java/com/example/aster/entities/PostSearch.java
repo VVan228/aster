@@ -15,6 +15,7 @@ public class PostSearch {
         this.date = date;
         this.category = category;
     }
+    public PostSearch(){}
 
 
     public String getLink() {
@@ -55,5 +56,17 @@ public class PostSearch {
 
     public void setCategory(String category) {
         this.category = category;
+    }
+
+
+    @Override
+    public String toString() {
+        return "PostSearch{" +
+                "link='" + link + '\'' +
+                ", author='" + author + '\'' +
+                ", views=" + views +
+                ", date=" + date +
+                ", category='" + category + '\'' +
+                '}';
     }
 }

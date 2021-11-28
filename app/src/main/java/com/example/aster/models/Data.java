@@ -1,28 +1,34 @@
 package com.example.aster.models;
 
+import static com.example.aster.events.Event.eventType.postLoaded;
+import static com.example.aster.events.Event.eventType.userLoaded;
+
 import android.util.Log;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 
 import com.example.aster.entities.Comment;
 import com.example.aster.entities.Post;
 import com.example.aster.entities.PostSearch;
 import com.example.aster.entities.Theme;
 import com.example.aster.entities.User;
+import com.example.aster.events.Event;
+import com.example.aster.events.EventsBus;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
-
-import java.util.Objects;
+import com.google.firebase.database.ValueEventListener;
 
 public class Data {
     private final DatabaseReference ref;
     private String uid;
+
+
+    Post loadedPost;
+    User loadedUser;
 
     public Data() {
         this.ref = FirebaseDatabase.getInstance().getReference();
@@ -39,21 +45,17 @@ public class Data {
         return ref.child("comments");
     }
     private DatabaseReference getPosts(){
-        return ref.child("comments");
+        return ref.child("posts");
     }
     private DatabaseReference getThemes(){
-        return ref.child("comments");
+        return ref.child("themes");
     }
     private DatabaseReference getSubscribers(){
         return ref.child("subscribers");
     }
 
 
-    public void addUser(User userData){
-        DatabaseReference query = getUsers().push();
-        query.keepSynced(true);
-        query.setValue(userData);
-    }
+
     public void addComment(Comment comment, String postKey){
         DatabaseReference query = getComments().child(postKey).push();
         query.keepSynced(true);
@@ -63,7 +65,13 @@ public class Data {
         DatabaseReference query = getPosts().push();
         query.keepSynced(true);
         query.setValue(post);
-        addSearchPost(new PostSearch(post.getLink(), post.getAuthor(), post.getViews(), post.getTime(), post.getCategory()));
+        addSearchPost(new PostSearch(
+                query.getKey(),
+                post.getAuthor(),
+                post.getViews(),
+                post.getTime(),
+                post.getCategory())
+        );
     }
     public void addTheme(Theme theme){
         DatabaseReference query = getThemes().push();
@@ -80,6 +88,54 @@ public class Data {
         DatabaseReference q = r.push();
         q.keepSynced(true);
         q.setValue(post);
+    }
+
+
+
+    public void loadPost(String key){
+        Query q = getPosts().child(key);
+
+        q.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                Post post = snapshot.getValue(Post.class);
+                if(post != null){
+                    loadedPost = post;
+                    postEvent(postLoaded);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
+    public Post getPost(){
+        return loadedPost;
+    }
+
+    public void loadUser(String key){
+        Query q = getUsers().child(key);
+
+        q.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                User user = snapshot.getValue(User.class);
+                if(user != null){
+                    loadedUser = user;
+                    postEvent(userLoaded);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
+    public User getUser(){
+        return loadedUser;
     }
 
 
@@ -102,5 +158,11 @@ public class Data {
         getSubscribers().child(uid).child(key).removeValue();
     }
 
+    void postEvent(Event.eventType type, String message){
+        EventsBus.post(new Event(type, message));
+    }
+    void postEvent(Event.eventType type){
+        EventsBus.post(new Event(type));
+    }
 
 }
