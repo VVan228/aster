@@ -21,8 +21,7 @@ public class ForumFragment extends Fragment {
         binding = FragmentForumBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textForum;
-        textView.setText("forum mf");
+
         return root;
     }
 

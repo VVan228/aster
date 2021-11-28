@@ -13,5 +13,8 @@
     <string name="title_category">Instruments</string>
     <string name="title_account">Account</string>
     <string name="title_messenger">Messenger</string>
+    <string name="ressearch">Поиск</string>
+    <string name="find">Найти</string>
+    <string name="send">Отправить</string>
 
 </resources>
